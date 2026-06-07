@@ -1,0 +1,22 @@
+/*
+  # Strict CSP — no remote scripts, fonts, or tracking
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: require-corp
+  Cross-Origin-Resource-Policy: same-origin
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webmanifest
+  Cache-Control: public, max-age=86400
+  Content-Type: application/manifest+json
+
+/sw.js
+  Cache-Control: no-store, no-cache, must-revalidate

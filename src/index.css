@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Adblocker-friendly: no remote fonts, no external requests */
+
+:root {
+  --c-void: #050510;
+  --c-cyan: #00fff9;
+  --c-magenta: #ff00e5;
+  --c-amber: #ffcc00;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  background: var(--c-void);
+  color: white;
+  min-height: 100%;
+  /* Prevent pull-to-refresh on mobile during gameplay */
+  overscroll-behavior: none;
+}
+
+/* Pixel font via Google Fonts CDN alternative: self-host via CSS */
+/* Since we can't load remote fonts, use a monospace stack */
+.font-pixel {
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 700;
+  image-rendering: pixelated;
+}
+
+.font-mono {
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 0.1em;
+}
+
+/* Touch: prevent double-tap zoom */
+button { touch-action: manipulation; user-select: none; }
+
+input:focus { outline: none; }
+
+@keyframes shake {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-2px, 3px); }
+  40% { transform: translate(2px, -3px); }
+  60% { transform: translate(-3px, 1px); }
+  80% { transform: translate(3px, -1px); }
+}
+
+.animate-shake {
+  animation: shake 0.2s ease-in-out;
+}

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TETRIS ARCADE</title>
+  <script>
+    // SPA redirect — preserve path for React Router
+    const path = window.location.pathname;
+    const base = '/tetris-arcade';
+    if (path !== base && path !== base + '/') {
+      sessionStorage.setItem('redirect', path);
+    }
+    window.location.replace(base + '/');
+  </script>
+</head>
+<body></body>
+</html>
